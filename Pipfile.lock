@@ -1,0 +1,38 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4721a390af44d94106784b2323ca4367d839ed0f70e96d4a9c9b770c1cdf9d25"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "3.6.1",
+            "os_name": "nt",
+            "platform_machine": "AMD64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "7",
+            "platform_system": "Windows",
+            "platform_version": "6.1.7601",
+            "python_full_version": "3.6.1",
+            "python_version": "3.6",
+            "sys_platform": "win32"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "janome": {
+            "hashes": [
+                "sha256:75e3ed94cd508c6fe2a68d3f3f73b45ecf8002596ae9b04ffa870429af1346b7"
+            ],
+            "version": "==0.3.6"
+        }
+    },
+    "develop": {}
+}
