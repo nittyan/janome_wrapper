@@ -20,9 +20,9 @@ class TokenizerWrapper:
     def __init__(self):
         self._tokenizer: Tokenizer = Tokenizer()
 
-    def tokenize(self, text: str, part_of_speeches: List[PartOfSpeech]) -> List[Token]:
+    def tokenize(self, text: str, part_of_speeches: List[PartOfSpeech], stop_words: List[str]=[]) -> List[Token]:
         return [token for token in self._tokenizer.tokenize(text)
-                if self._start_with(token, part_of_speeches)]
+                if self._start_with(token, part_of_speeches) and not self._is_stop_word(token, stop_words)]
 
     def _start_with(self, token: Token, part_of_speeches: List[PartOfSpeech]) -> bool:
         for entry in part_of_speeches:
@@ -30,10 +30,13 @@ class TokenizerWrapper:
                 return True
         return False
 
+    def _is_stop_word(self, token: Token, stop_words: List[str]):
+        return token.surface in stop_words
+
 
 def main():
     tokenizer = TokenizerWrapper()
-    tokens: List[Token] = tokenizer.tokenize('隣の客はよく柿食う客だ', [PartOfSpeech.VERB, PartOfSpeech.NOUN])
+    tokens: List[Token] = tokenizer.tokenize('隣の客はよく柿食う客だ', [PartOfSpeech.VERB, PartOfSpeech.NOUN], ['隣'])
     for token in tokens:
         print(token.surface)
 
